@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-body text-[16px] font-medium antialiased;
+    background-image: radial-gradient(circle at 50% 0%, #fffaf0 0%, #fbf6ee 60%);
+  }
+  ::selection {
+    @apply bg-champagne/40;
+  }
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply outline-none ring-2 ring-champagne-dark/60 ring-offset-2 ring-offset-cream;
+  }
+}
