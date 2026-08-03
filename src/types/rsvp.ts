@@ -1,6 +1,7 @@
 export const MEAL_OPTIONS = [
   { value: "tamal", label: "🫔 Tamal valluno" },
   { value: "sancocho", label: "🍲 Sancocho de pollo" },
+  { value: "kids", label: "🍟 Menú infantil (Nuggets de pollo y papas fritas)" },
 ] as const;
 
 export type MealValue = (typeof MEAL_OPTIONS)[number]["value"];

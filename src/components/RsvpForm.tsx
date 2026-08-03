@@ -158,8 +158,7 @@ export const RsvpForm: React.FC = () => {
             Número de personas que asistirán con esta invitación
           </Label>
           <p className="mb-3 font-body text-sm font-medium leading-relaxed text-ink/55">
-            Cada invitación fue preparada para un número determinado de
-            personas. Agradecemos respetar el número indicado en ella. ❤️
+            Nota: Esta invitación ha sido preparada para un número específico de personas. Por favor, selecciona el número de asistentes indicado en tu invitación y registra únicamente a quienes fueron invitados. ❤️
           </p>
           <Controller
             name="guestCount"
@@ -196,12 +195,18 @@ export const RsvpForm: React.FC = () => {
                 Selección del almuerzo 🍽️
               </h2>
             </div>
-            <p className="mb-5 font-body text-sm font-medium leading-relaxed text-ink/55">
+            <p className="mb-2 font-body text-sm font-medium leading-relaxed text-ink/55">
               Escribe el nombre y el plato de preferencia de cada asistente
-              confirmado. Opciones disponibles:{" "}
-              <span className="font-semibold text-ink/70">🫔 Tamal valluno</span> ·{" "}
-              <span className="font-semibold text-ink/70">🍲 Sancocho de pollo</span>
+              confirmado.
             </p>
+            <p className="mb-2 font-body text-sm font-medium leading-relaxed text-ink/55">
+              Opciones disponibles:
+            </p>
+            <ul className="mb-5 list-disc space-y-1 pl-5 font-body text-sm font-medium leading-relaxed text-ink/55">
+              <li className="font-semibold text-ink/70">🫔 Tamal valluno</li>
+              <li className="font-semibold text-ink/70">🍲 Sancocho de pollo</li>
+              <li className="font-semibold text-ink/70">🍟 Menú infantil (Nuggets de pollo y papas fritas)</li>
+            </ul>
 
             <div className="space-y-4">
               {Array.from({ length: guestCount }, (_, i) => (
