@@ -25,6 +25,8 @@ function toSheetPayload(values: RsvpFormValues): RsvpSheetPayload {
             ? "Tamal valluno"
             : g.meal === "sancocho"
             ? "Sancocho de pollo"
+            : g.meal === "kids"
+            ? "Menú infantil"
             : "";
         return `${g.name}: ${label}`;
       })

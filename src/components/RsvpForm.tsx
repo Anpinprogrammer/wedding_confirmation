@@ -20,7 +20,7 @@ import type { RsvpFormValues } from "@/types/rsvp";
 
 const guestSchema = z.object({
   name: z.string().trim().min(2, "Escribe el nombre completo"),
-  meal: z.enum(["tamal", "sancocho", ""]).refine((v) => v !== "", {
+  meal: z.enum(["tamal", "sancocho", "kids", ""]).refine((v) => v !== "", {
     message: "Elige un plato",
   }),
 });
