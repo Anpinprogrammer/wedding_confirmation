@@ -81,6 +81,12 @@ Esto te permite ver de un vistazo, en cada pestaña, exactamente quién eligió 
 
 > Si más adelante agregas otro plato a `MEAL_OPTIONS` en `src/types/rsvp.ts`, recuerda también agregarlo al objeto `MEAL_SHEET_NAMES` en `google-apps-script/Code.gs` para que tenga su propia pestaña.
 
+### Si borras filas manualmente en Sheets
+
+Para eliminar una respuesta, usa siempre **clic derecho sobre el número de fila → "Eliminar fila"**, no selecciones el contenido y presiones `Supr`/`Backspace`. Borrar solo el contenido deja una fila "fantasma" (vacía pero aún registrada por Sheets), lo que puede hacer que la siguiente respuesta del formulario aparezca después de un hueco en blanco.
+
+El script ya incluye una protección para esto (`appendRowSafely_`, en `Code.gs`): busca la verdadera última fila con datos en la columna A antes de escribir, así que aunque quede alguna fila vacía por accidente, las nuevas respuestas no deberían dejar huecos adicionales.
+
 > **Nota técnica:** las solicitudes se envían con `mode: "no-cors"`, porque los Web Apps de Apps Script no siempre configuran cabeceras CORS. Esto significa que el navegador no puede leer la respuesta del script (no se puede confirmar el éxito exacto desde el cliente), pero el dato sí llega y se guarda. Si necesitas confirmación de entrega en el cliente, puedes desplegar el script detrás de un proxy propio (p. ej. una función serverless) que sí devuelva cabeceras CORS.
 
 ### 5. Vuelve a desplegar tras cada cambio al script
