@@ -24,4 +24,10 @@ export interface RsvpSheetPayload {
   guestNames: string;
   guestMeals: string;
   message: string;
+
+   /**
+   * Structured guest list (name + meal per person). Apps Script uses this
+   * to fan out each guest into the corresponding per-meal tab.
+   */
+  guests: { name: string; meal: MealValue | "" }[];
 }

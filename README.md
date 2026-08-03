@@ -72,7 +72,14 @@ Y pega tu URL:
 VITE_GOOGLE_SCRIPT_URL="https://script.google.com/macros/s/TU_ID_DE_DESPLIEGUE/exec"
 ```
 
-Reinicia `npm run dev`. Cada envío del formulario agregará una fila a la hoja **"Respuestas"** con: fecha, número de personas, nombres, plato elegido por cada uno, y el mensaje.
+Reinicia `npm run dev`. Cada envío del formulario agregará:
+
+- Una fila en la pestaña **"Respuestas"**, con: fecha, número de personas, nombres, plato elegido por cada uno, y el mensaje (igual que antes).
+- **Una fila por cada invitado** en la pestaña correspondiente a su plato — **"Tamal valluno"** o **"Sancocho de pollo"** — con su nombre y la fecha de envío. Estas pestañas se crean automáticamente la primera vez que alguien elige ese plato, así que no necesitas crearlas a mano.
+
+Esto te permite ver de un vistazo, en cada pestaña, exactamente quién eligió cada comida y contar el total fácilmente (por ejemplo con `=COUNTA(B2:B)` en cualquier celda de esa pestaña, para contar cuántos nombres hay).
+
+> Si más adelante agregas otro plato a `MEAL_OPTIONS` en `src/types/rsvp.ts`, recuerda también agregarlo al objeto `MEAL_SHEET_NAMES` en `google-apps-script/Code.gs` para que tenga su propia pestaña.
 
 > **Nota técnica:** las solicitudes se envían con `mode: "no-cors"`, porque los Web Apps de Apps Script no siempre configuran cabeceras CORS. Esto significa que el navegador no puede leer la respuesta del script (no se puede confirmar el éxito exacto desde el cliente), pero el dato sí llega y se guarda. Si necesitas confirmación de entrega en el cliente, puedes desplegar el script detrás de un proxy propio (p. ej. una función serverless) que sí devuelva cabeceras CORS.
 

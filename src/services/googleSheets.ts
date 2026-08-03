@@ -32,6 +32,7 @@ function toSheetPayload(values: RsvpFormValues): RsvpSheetPayload {
       })
       .join(" | "),
     message: values.message,
+    guests: values.guests.map((g) => ({ name: g.name, meal: g.meal })),
   };
 }
 
