@@ -145,7 +145,7 @@ export const RsvpForm: React.FC = () => {
         <p className="mx-auto mt-3 max-w-md font-body text-sm font-medium leading-relaxed text-ink/55">
           Agradecemos confirmar antes del{" "}
           <span className="font-semibold text-ink/75">
-            01 de septiembre de 2026
+            01 de noviembre de 2026
           </span>{" "}
           para organizar cada detalle con mucho cariño.
         </p>
